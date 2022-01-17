@@ -1,12 +1,21 @@
+:root{
+    --primary: #131420;
+    --secondary: orange;
+    --white:#ececec; 
+    --darkerwhite: #d4d4d4;
+}
+
+
+
 html{
     height: 100%;
     width: 100%;
 }
 
 body{
-    background-color: #131420;
+    background-color: var(--primary);
     margin: 0;
-    color: white;
+    color: var(--white);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,28 +23,40 @@ body{
 }
 
 body h1{
-    padding: 3rem 0 0 0;
     font-size: 3rem;
 }
 
 body h1 span{
-    color: orange;
+    color: var(--secondary);
+}
+
+section{
+    width: 100%;
 }
 
 .main{
     background-color: none;
     width: 100%;
-    height: 500px;
+    height: 100vh;
     display: flex;
     justify-content: space-evenly ;
     align-items: center;  
+    flex-direction: column;
 
+}
+
+.main .elements{
+    justify-content: space-evenly ;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border: none;
 }
 
 .main div{
     width: 300px;
     height: 300px;
-    border: 4px solid white;
+    border: 4px solid var(--white);
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -44,6 +65,97 @@ body h1 span{
 }
 
 .main div:hover{
-    border-color: orange;
+    border-color: var(--secondary);
     cursor: pointer;
+}
+
+.arrow{
+    display: none;
+}
+
+.canvas{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary);
+    background-color: var(--white);
+    width: 100%;
+    height: 100vh;
+}
+
+.canvas h2{
+    font-size: 2.5rem;
+}
+
+.cv_geometry{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.geometry_elements{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.container{
+    font-weight: bold;
+    border: 4px solid var(--primary);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 450px;
+    width: 450px;
+    position: relative;
+}
+
+.containerFooter{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    position: absolute;
+    overflow: hidden;
+    bottom: 0;
+}
+
+
+
+label{
+    font-weight: normal;
+    padding: 0.5rem 45% 0.5rem 0.5rem;
+}
+
+input{
+    border: none;
+    background-color: var(--darkerwhite);
+    height: 40px;
+    width: 80%;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+input:focus {   
+    border-color: var(--secondary);
+ }
+
+button{
+    border: none;
+    background-color: var(--primary);
+    color: var(--white);
+    border-radius: 20px;
+    height: 30px;
+    width: 80%;
+    margin-bottom: 1rem;
+
+}
+
+.content{
+    display: none;
 }
