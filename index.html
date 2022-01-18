@@ -5,14 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Math Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <!--Landing section that shows all the diferent contextual options-->
     <section class="main">
         
         <h1>Welcome to math <span>assistant!</span></h1>
         <div class="elements">
-            <div class="geometry" onclick="writethings()">
+            <div class="geometry" onclick="DisplayGeometry()">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-triangle-square-circle" width="100" height="100" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <path d="M12 3l-4 7h8z" />
@@ -22,7 +27,7 @@
                 <h2>Geometry</h2>
             </div>
     
-            <div class="discounts">
+            <div class="discounts" onclick="DisplayDiscounts()">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-discount" width="100" height="100" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <circle cx="6" cy="19" r="2" />
@@ -37,7 +42,7 @@
                 <h2>Discounts</h2>
             </div>
     
-            <div class="statistics">
+            <div class="statistics" onclick="DisplayStatistics()">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-pie" width="100" height="100" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <path d="M10 3.2a9 9 0 1 0 10.8 10.8a1 1 0 0 0 -1 -1h-6.8a2 2 0 0 1 -2 -2v-7a0.9 .9 0 0 0 -1 -.8" />
@@ -46,7 +51,7 @@
                 <h2>Statistics</h2>
             </div>
     
-            <div class="salaries">
+            <div class="salaries" onclick="DisplaySalaries()">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-coin" width="100" height="100" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <circle cx="12" cy="12" r="9" />
@@ -56,9 +61,10 @@
                 <h2>Salaries</h2>
             </div>
         </div>
-        
-        
+
     </section>
+
+    <!--Arrow indicator that shows that there's more content down below-->
     <div class="arrow">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="100" height="100" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff9300" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -66,8 +72,10 @@
         </svg>
     </div>
 
-
+    <!--Canvas where diferent sections will be "rendered"-->
     <section class="content">
+
+        <!--Geometry section-->
         <div class="canvas cv_geometry">
             <h2>Geometry</h2>
             <div class="geometry_elements">
@@ -113,8 +121,8 @@
                       <label>Circle radius measure</label>
                       <input type="number" id="circleInput">
                         <div class="containerFooter">
-                            <button type="button">Area</button>
-                            <button type="button">Perimeter</button>
+                            <button type="button" onclick="CircleArea()">Area</button>
+                            <button type="button" onclick="CirclePerimeter()">Perimeter</button>
                             <input type="text" disabled id="circleAnswer">
                         </div>
                 </div>
@@ -122,16 +130,16 @@
             
         </div>
 
-        <div class="cv_discounts">
-        
+        <!--Discounts section-->
+        <div class="canvas cv_discounts">
         </div>
 
-        <div class="cv_statistics">
-        
+        <!--Statistics section-->
+        <div class="canvas cv_statistics">
         </div>
 
-        <div class="cv_salaries">
-        
+        <!--Salaries section-->
+        <div class="canvas cv_salaries">
         </div>
 
     </section>
