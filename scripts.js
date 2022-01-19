@@ -80,3 +80,13 @@ function CircleArea(){
     document.getElementById("circleAnswer").value = area + "cm^2";
 }
 
+
+//Discounts section fuctionss
+
+function GetDiscount(){
+    const ogPrice = document.getElementById("inputPrice").value;
+    const percentaje = document.getElementById("inputPercentaje").value;
+    finalPrice = ogPrice - (ogPrice * (percentaje/100));
+    const canvas = document.getElementsByClassName("output")[0];
+    canvas.innerHTML = "<h2>The final price with a <span>" + percentaje + "%</span> discount is: <span>" + finalPrice +"</span></h2>";
+}
