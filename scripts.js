@@ -30,11 +30,6 @@ function DisplayStatistics(){
     canvas.style.display = "flex"
 }
 
-function DisplaySalaries(){
-    InitDisplay()
-    const canvas = document.getElementsByClassName("cv_salaries")[0];
-    canvas.style.display = "flex"
-}
 
 //Geometry section functions
 
@@ -90,3 +85,5 @@ function GetDiscount(){
     const canvas = document.getElementsByClassName("output")[0];
     canvas.innerHTML = "<h2>The final price with a <span>" + percentaje + "%</span> discount is: <span>" + finalPrice +"</span></h2>";
 }
+
+//Statistics section functions
