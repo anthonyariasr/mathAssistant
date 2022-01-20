@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!--Landing section that shows all the diferent contextual options-->
+    <section class="main">
+        
+        <h1>Welcome to math <span>assistant!</span></h1>
+        <div class="elements">
+            <div class="geometry" onclick="DisplayGeometry()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-triangle-square-circle" width="100" height="100" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M12 3l-4 7h8z" />
+                    <circle cx="17" cy="17" r="3" />
+                    <rect x="4" y="14" width="6" height="6" rx="1" />
+                </svg>
+                <h2>Geometry</h2>
+            </div>
+    
+            <div class="discounts" onclick="DisplayDiscounts()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-discount" width="100" height="100" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <circle cx="6" cy="19" r="2" />
+                    <circle cx="17" cy="19" r="2" />
+                    <path d="M17 17h-11v-14h-2" />
+                    <path d="M20 6l-1 7h-13" />
+                    <path d="M10 10l6 -6" />
+                    <circle cx="10.5" cy="4.5" r=".5" />
+                    <circle cx="15.5" cy
+                    ="9.5" r=".5" />
+                </svg>
+                <h2>Discounts</h2>
+            </div>
+    
+            <div class="statistics" onclick="DisplayStatistics()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-pie" width="100" height="100" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M10 3.2a9 9 0 1 0 10.8 10.8a1 1 0 0 0 -1 -1h-6.8a2 2 0 0 1 -2 -2v-7a0.9 .9 0 0 0 -1 -.8" />
+                    <path d="M15 3.5a9 9 0 0 1 5.5 5.5h-4.5a1 1 0 0 1 -1 -1v-4.5" />
+                </svg>
+                <h2>Statistics</h2>
+            </div>
+    
+            <div class="salaries" onclick="DisplaySalaries()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-coin" width="100" height="100" viewBox="0 0 24 24" stroke-width="1" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M14.8 9a2 2 0 0 0 -1.8 -1h-2a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4h-2a2 2 0 0 1 -1.8 -1" />
+                    <path d="M12 6v2m0 8v2" />
+                </svg>
+                <h2>Salaries</h2>
+            </div>
+        </div>
+
+    </section>
+
+    <!--Arrow indicator that shows that there's more content down below-->
+    <div class="arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="100" height="100" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff9300" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <polyline points="6 9 12 15 18 9" />
+        </svg>
+    </div>
+
+    <!--Canvas where diferent sections will be "rendered"-->
+    <section class="content">
+
+        <!--Geometry section-->
+        <div class="canvas cv_geometry">
+            <h2>Geometry</h2>
+            <div class="geometry_elements">
+
+                <div class="container">
+                    <p>Square</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-square" width="100" height="100" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff9300" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <rect x="4" y="4" width="16" height="16" rx="2" />
+                    </svg>
+                    <label>Square side measure</label>
+                    <input type="number" id="squareInput">
+                    <div class="containerFooter">
+                        <button type="button" onclick="SquareArea()">Area</button>
+                        <button type="button" onclick="SquarePerimeter()">Perimeter</button>
+                        <input type="text" disabled id="squareAnswer">
+                    </div>  
+                    
+                </div>
+
+                <div class="container">
+                    <p>Equilateral Triangle</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-triangle" width="100" height="100" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff9300" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75" />
+                    </svg>
+                    <label>Triangle side measure</label>
+                    <input type="number" id="triInput">
+
+                    <div class="containerFooter">
+                        <button type="button" onclick="TriArea()">Area</button>
+                        <button type="button" onclick="TriPerimeter()">Perimeter</button>
+                        <input type="text" disabled id="triAnswer">
+                    </div>
+                </div>
+
+                <div class="container">
+                    <p>Circle</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle" width="100" height="100" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff9300" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <circle cx="12" cy="12" r="9" />
+                      </svg>
+                      <label>Circle radius measure</label>
+                      <input type="number" id="circleInput">
+                        <div class="containerFooter">
+                            <button type="button" onclick="CircleArea()">Area</button>
+                            <button type="button" onclick="CirclePerimeter()">Perimeter</button>
+                            <input type="text" disabled id="circleAnswer">
+                        </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!--Discounts section-->
+        <div class="canvas cv_discounts">
+            <h2>Discounts</h2>
+            <div class="dcontainer">
+                <div class="form">
+                    <label>Original price</label>
+                    <input type="number" id="inputPrice">
+                    <label>Discount percentaje %</label>
+                    <input type="number" id="inputPercentaje">
+                    <button type="button" onclick="GetDiscount()">Calculate discount</button>
+                </div>
+                <div class="output">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-percentage" width="300" height="300" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffa60050" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <circle cx="17" cy="17" r="1" />
+                        <circle cx="7" cy="7" r="1" />
+                        <line x1="6" y1="18" x2="18" y2="6" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!--Statistics section-->
+        <div class="canvas cv_statistics">
+        </div>
+
+        <!--Salaries section-->
+        <div class="canvas cv_salaries">
+        </div>
+
+    </section>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>
