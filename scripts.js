@@ -1,4 +1,7 @@
 
+//Functions about DOM control
+
+//Clean the canvas
 function Clean(){
     const canvas = document.getElementsByClassName("canvas");
     for (var i = 0; i < canvas.length; i++) {
@@ -6,35 +9,23 @@ function Clean(){
     }
 }
 
+//Display the arrow indicator and a section where the diferent sections will be showed
 function InitDisplay(){
     Clean()
     document.getElementsByClassName("arrow")[0].style.display = "block";
-    document.getElementsByClassName("content")[0].style.display = "block";   
+    document.getElementsByClassName("content")[0].style.display = "block";
 }
 
-function DisplayGeometry(){
+//Recieve the section class name as a parameter to later on display the requested info
+function Display(className){
     InitDisplay()
-    const canvas = document.getElementsByClassName("cv_geometry")[0];
+    const canvas = document.getElementsByClassName(className)[0];
     canvas.style.display = "flex"
+    window.scrollTo({ top: 1000, behavior: 'smooth' }); 
 }
 
-function DisplayDiscounts(){
-    InitDisplay()
-    const canvas = document.getElementsByClassName("cv_discounts")[0];
-    canvas.style.display = "flex"
-}
 
-function DisplayStatistics(){
-    InitDisplay()
-    const canvas = document.getElementsByClassName("cv_statistics")[0];
-    canvas.style.display = "flex"
-}
 
-function DisplaySalaries(){
-    InitDisplay()
-    const canvas = document.getElementsByClassName("cv_salaries")[0];
-    canvas.style.display = "flex"
-}
 
 //Geometry section functions
 
@@ -81,6 +72,8 @@ function CircleArea(){
 }
 
 
+
+
 //Discounts section fuctionss
 
 function GetDiscount(){
@@ -90,3 +83,7 @@ function GetDiscount(){
     const canvas = document.getElementsByClassName("output")[0];
     canvas.innerHTML = "<h2>The final price with a <span>" + percentaje + "%</span> discount is: <span>" + finalPrice +"</span></h2>";
 }
+
+
+
+//Statistics section functions
