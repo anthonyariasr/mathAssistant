@@ -54,7 +54,7 @@ function TriPerimeter(){
 function TriArea(){
     const side = document.getElementById("triInput").value;
     const area = (Math.sqrt(3)/4) * (side**2)
-    document.getElementById("triAnswer").value = area + "cm^2";
+    document.getElementById("triAnswer").value = area.toFixed(2) + "cm^2";
 }
 
 //Circle functions
@@ -62,13 +62,13 @@ function TriArea(){
 function CirclePerimeter(){
     const radio = document.getElementById("circleInput").value;
     const perimeter = (radio * 2) * Math.PI;
-    document.getElementById("circleAnswer").value = perimeter + "cm";
+    document.getElementById("circleAnswer").value = perimeter.toFixed(2) + "cm";
 }
 
 function CircleArea(){
     const radio = document.getElementById("circleInput").value;
     const area = Math.PI * (radio ** 2);
-    document.getElementById("circleAnswer").value = area + "cm^2";
+    document.getElementById("circleAnswer").value = area.toFixed(2) + "cm^2";
 }
 
 
@@ -87,3 +87,64 @@ function GetDiscount(){
 
 
 //Statistics section functions
+function AddtoList(){
+    const number = document.getElementById("datafield").value;
+    if(number != ""){
+        const list = document.getElementById("mylist");
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(number));
+        list.appendChild(li);
+        FillArray();
+        document.getElementById("datafield").value = "";
+    }
+}
+
+function FillArray(){
+    var myarray = [];
+    const listitems = document.getElementsByTagName("li");
+    for (x = 0; x < listitems.length; x++){
+        myarray.push(parseInt(listitems[x].innerText));
+    }
+    sortedmyarray = myarray.sort(function(a, b) {
+        return a - b;
+      });
+    Operations(sortedmyarray);
+}
+
+
+function Operations(myarray){
+    console.log(myarray)
+
+    //average
+    var sum = 0;
+    for(x=0; x<myarray.length; x++){
+        sum = sum + myarray[x];
+    }
+
+    var avg = sum / myarray.length;
+
+
+    //median
+    if(myarray.length%2 == 0){
+        console.log((myarray.length/2)%2 == 0);
+        var median = String(myarray[myarray.length/2 - 1]) + ", " + String(myarray[myarray.length/2]);
+    }
+    else{
+        var median = String(myarray[((myarray.length/2) - 0.5)]);
+    }
+
+
+
+    //mode
+
+
+
+    displayResults(avg.toFixed(2), median)
+}
+
+function displayResults(average, median){
+    const canvas = document.getElementsByClassName("output")[1];
+    canvas.innerHTML = "<h2>Average: <span>" + average +"</span></h2><h2>Median: <span>" + median +"</span></h2>";
+    
+}
+
