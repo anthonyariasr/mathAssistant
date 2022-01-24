@@ -20,7 +20,9 @@ function Display(className) {
   InitDisplay();
   const canvas = document.getElementsByClassName(className)[0];
   canvas.style.display = "flex";
-  const elementPosition = document.getElementById("elements").getBoundingClientRect().bottom;
+  const elementPosition = document
+    .getElementById("elements")
+    .getBoundingClientRect().bottom;
   console.log(elementPosition);
   window.scrollTo({ top: elementPosition, behavior: "smooth" });
 }
@@ -113,9 +115,7 @@ function FillArray() {
 }
 
 function Operations(myarray) {
-  console.log(myarray);
-
-  //average
+  //average --------------------------------------------------
   var sum = 0;
   for (x = 0; x < myarray.length; x++) {
     sum = sum + myarray[x];
@@ -123,16 +123,15 @@ function Operations(myarray) {
 
   var avg = sum / myarray.length;
 
-  //median
+  //median ---------------------------------------------------
   if (myarray.length % 2 == 0) {
-    console.log((myarray.length / 2) % 2 == 0);
     var median =
       (myarray[myarray.length / 2 - 1] + myarray[myarray.length / 2]) / 2;
   } else {
     var median = String(myarray[myarray.length / 2 - 0.5]);
   }
 
-  //mode
+  //mode -----------------------------------------------------
   const counter = {};
 
   myarray.map(function (element) {
@@ -143,25 +142,29 @@ function Operations(myarray) {
     }
   });
 
-  console.log(counter);
-  //work on format to display multi modes
+  const listCounter = Object.entries(counter).sort(function (value, nextValue) {
+    return value[1] - nextValue[1];
+  });
 
+  const mode = listCounter[listCounter.length - 1][0];
 
-  //Callback to display
+  //Callback to display ----------------------------------------
   if (myarray.length == 0) {
-    displayResults(0, 0);
+    displayResults(0, 0, 0);
   } else {
-    displayResults(avg.toFixed(2), median);
+    displayResults(avg.toFixed(2), median, mode);
   }
 }
 
-function displayResults(average, median) {
+function displayResults(average, median, mode) {
   const canvas = document.getElementsByClassName("output")[1];
   canvas.innerHTML =
     "<h2>Average: <span>" +
     average +
     "</span></h2><h2>Median: <span>" +
     median +
+    "</span></h2><h2>Mode: <span>" +
+    mode +
     "</span></h2>";
 }
 
