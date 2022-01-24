@@ -20,7 +20,9 @@ function Display(className) {
   InitDisplay();
   const canvas = document.getElementsByClassName(className)[0];
   canvas.style.display = "flex";
-  window.scrollTo({ top: 2000, behavior: "smooth" });
+  const elementPosition = document.getElementById("elements").getBoundingClientRect().bottom;
+  console.log(elementPosition);
+  window.scrollTo({ top: elementPosition, behavior: "smooth" });
 }
 
 //Geometry section functions
@@ -80,8 +82,8 @@ function GetDiscount() {
     "%</span> discount is: <span>" +
     finalPrice +
     "</span></h2>";
-    document.getElementById("inputPercentaje").value = "";
-    document.getElementById("inputPrice").value = "";
+  document.getElementById("inputPercentaje").value = "";
+  document.getElementById("inputPrice").value = "";
 }
 
 //Statistics section functions
@@ -131,20 +133,24 @@ function Operations(myarray) {
   }
 
   //mode
+  const counter = {};
 
+  myarray.map(function (element) {
+    if (counter[element]) {
+      counter[element] += 1;
+    } else {
+      counter[element] = 1;
+    }
+  });
 
-  //missing mode calculus
+  console.log(counter);
 
-
-  
-  if(myarray.length == 0){
+  //Callback to display
+  if (myarray.length == 0) {
     displayResults(0, 0);
-  }
-  else{
+  } else {
     displayResults(avg.toFixed(2), median);
   }
-
-  
 }
 
 function displayResults(average, median) {
@@ -157,7 +163,7 @@ function displayResults(average, median) {
     "</span></h2>";
 }
 
-function ClearData(){
-    document.getElementById("mylist").innerHTML = "";
-    FillArray()
+function ClearData() {
+  document.getElementById("mylist").innerHTML = "";
+  FillArray();
 }
