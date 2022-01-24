@@ -144,6 +144,8 @@ function Operations(myarray) {
   });
 
   console.log(counter);
+  //work on format to display multi modes
+
 
   //Callback to display
   if (myarray.length == 0) {
