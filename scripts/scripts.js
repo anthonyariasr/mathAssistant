@@ -146,7 +146,12 @@ function Operations(myarray) {
     return value[1] - nextValue[1];
   });
 
-  const mode = listCounter[listCounter.length - 1][0];
+  try {
+    var mode = listCounter[listCounter.length - 1][0];
+  } catch (error) {
+    var mode = 0;
+  }
+  
 
   //Callback to display ----------------------------------------
   if (myarray.length == 0) {
